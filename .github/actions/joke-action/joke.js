@@ -10,7 +10,6 @@ const options = {
 
 async function getJoke() {
   const res = await tiny.get(options);
-  console.log(res) 
   return res.body.joke;
 }
 
