@@ -1,18 +1,17 @@
-const request = require("request-promise");
+const tiny = require("tiny-json-http");
 
 const options = {
-  method: "GET",
-  uri: "https://icanhazdadjoke.com/",
+  url: "https://icanhazdadjoke.com/",
   headers: {
     Accept: "application/json",
     "User-Agent": "Writing JavaScript action GitHub Skills course.",
-  },
-  json: true,
+  }
 };
 
 async function getJoke() {
-  const res = await request(options);
-  return res.joke;
+  const res = await tiny.get(options);
+  console.log(res) 
+  return res.body.joke;
 }
 
 module.exports = getJoke;
